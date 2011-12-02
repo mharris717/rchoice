@@ -12,12 +12,12 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "choice"
+  gem.name = "rchoice"
   gem.homepage = "http://github.com/mharris717/choice"
   gem.license = "MIT"
   gem.summary = %Q{choice}
   gem.description = %Q{choice}
-  gem.email = "mharris@indians.com"
+  gem.email = "mharris717@gmail.com"
   gem.authors = ["Mike Harris"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
