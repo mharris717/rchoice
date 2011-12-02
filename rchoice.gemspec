@@ -26,10 +26,11 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "lib/choice.rb",
+    "rchoice.gemspec",
     "spec/choice_spec.rb",
     "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/mharris717/choice}
+  s.homepage = %q{http://github.com/mharris717/rchoice}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.5.2}
