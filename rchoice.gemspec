@@ -25,6 +25,11 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "lib/rchoice.rb",
+    "lib/rchoice/choice.rb",
+    "lib/rchoice/choosers/command_line_chooser.rb",
+    "lib/rchoice/core_ext.rb",
+    "lib/rchoice/option.rb",
     "rchoice.gemspec",
     "spec/choice_spec.rb",
     "spec/spec_helper.rb"
