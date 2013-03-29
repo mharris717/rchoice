@@ -1,34 +1,11 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-describe 'ProcChoice' do
-  before do
-    @results = []
-    @choice = RChoice::ProcChoice.new
-    @choice.add_option(:a) { @results << :a }
-    @choice.add_option(:b) { @results << :b }
-  end
-  describe 'choosing first' do
-    before do
-      @choice.chooser = lambda { |c| c.options.first }
-    end
-    it 'should execute first action' do
-      @choice.execute!
-      @results.should == [:a]
-    end
-  end
-end
-
-describe 'loading options' do
-  before do
-    @choice = RChoice::Choice.new(:options => [3,7])
-  end
-  it 'should load options' do
-    @choice.options.first.class.should == RChoice::Option
-  end
-end
 describe "Choice" do
+  it 'smoke' do
+    2.should == 2
+  end
   before do
-    @choice = RChoice::Choice.new
+    @choice = Choice::Choice.new
     @choice.add_option 3
     @choice.add_option 7
   end
@@ -51,12 +28,12 @@ describe "Choice" do
       @choice.chosen_option.should be_nil
     end
     it 'should error if optional is false' do
-      lambda { @choice.chosen_option }.should raise_error(RChoice::OptionNotChosenError)
+      lambda { @choice.chosen_option }.should raise_error(Choice::OptionNotChosenError)
     end
 
     describe 'cl chooser' do
       before do
-        chooser = RChoice::CommandLineChooser.new
+        chooser = Choice::CommandLineChooser.new
         stub(chooser).get_choice_num { 1 }
         stub(chooser).print_line(anything) { }
         @choice.chooser = chooser
@@ -77,32 +54,5 @@ describe "Choice" do
       @choice.execute!
       @results.should == [3]
     end
-  end
-end
-
-describe 'core' do
-  it 'should parse 0' do
-    '0'.safe_to_i.should == 0
-    ' 0 '.safe_to_i.should == 0
-  end
-  it 'should parse 1' do
-    '1'.safe_to_i.should == 1
-    ' 1 '.safe_to_i.should == 1
-  end
-  it 'should parse -1' do
-    '-1'.safe_to_i.should == -1
-    ' -1 '.safe_to_i.should == -1
-  end
-  it 'should not parse blank' do
-    lambda { ''.safe_to_i }.should raise_error
-    lambda { '   '.safe_to_i }.should raise_error
-  end
-  it 'should not parse junk' do
-    lambda { ' ab'.safe_to_i }.should raise_error
-    lambda { 'a4'.safe_to_i }.should raise_error
-  end
-  it 'should parse -1.5' do
-    '-1.5'.safe_to_i.should == -1
-    ' -1.5 '.safe_to_i.should == -1
   end
 end

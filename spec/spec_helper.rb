@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'rspec'
 require 'rr'
 #require 'choice'
-require File.dirname(__FILE__) + "/../lib/rchoice"
+require File.dirname(__FILE__) + "/../lib/choice"
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
