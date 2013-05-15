@@ -21,7 +21,7 @@ class String
     true
   end
   def safe_to_i
-    raise "not valid number format #{self}" unless valid_number_format?
+    raise "not valid number format '#{self}'" unless valid_number_format?
     to_i
   end
   def safe_to_f

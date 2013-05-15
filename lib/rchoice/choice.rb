@@ -1,12 +1,15 @@
 module RChoice
   class Choice
     include FromHash
-    attr_accessor :optional, :action_blk, :chooser
+    attr_accessor :optional, :action_blk, :chooser, :name, :parent_obj
+
+    fattr(:choice_id) { rand(100000000000) }
     fattr(:options) { [] }
     fattr(:option_presenter) do
       lambda { |o| o.to_s }
     end
     fattr(:chosen_option) do
+      raise "no chooser" unless chooser
       res = chooser.call(self)
       raise OptionNotChosenError.new if !res && !optional
       res

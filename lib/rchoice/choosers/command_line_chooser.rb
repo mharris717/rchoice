@@ -1,7 +1,7 @@
 module RChoice
   class CommandLineChooser
     def call(choice)
-      print_line "Choose"
+      print_line "Choose #{choice.name}"
       choice.options.each_with_index do |op,i|
         print_line "#{i}. #{choice.option_presenter[op]}"
       end

@@ -26,6 +26,21 @@ describe 'loading options' do
     @choice.options.first.class.should == RChoice::Option
   end
 end
+
+describe 'redis' do
+  let(:choice) do
+    res = RChoice::Choice.new(:options => [3,7])
+    res.chooser = RChoice::RedisChooser.new
+    res
+  end
+  it 'should load options' do
+    choice.options.first.class.should == RChoice::Option
+  end
+  it 'gets answer' do
+    puts choice.chosen_option.inspect
+  end
+end
+
 describe "Choice" do
   before do
     @choice = RChoice::Choice.new
